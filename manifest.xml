@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<remote name="atu" fetch="https://github.com/atu-l21/" />
+<!--
+     (device boot) means those contain device-specific fixes which are required to boot
+     (boot) means it is required to boot
+-->
+
+<!-- (device boot) Needed only for Essential PH-1 Oreo Beta 1 -->
+<remove-project name="platform/frameworks/av" />
+<project path="frameworks/av" name="platform_frameworks_av" remote="atu" revision="master" />
+
+<!-- Needed to display FBE sdcard in MTP -->
+<remove-project name="platform/frameworks/base" />
+<project path="frameworks/base" name="platform_frameworks_base" remote="atu" revision="master" />
+
+<!-- Needed for Huawei HWC -->
+<remove-project name="platform/frameworks/native" />
+<project path="frameworks/native" name="platform_frameworks_native" remote="atu" revision="master" />
+
+<!-- (device boot) To debug. Most probably SEPolicy one liner, huawei -->
+<remove-project name="platform/frameworks/opt/net/wifi" />
+<project path="frameworks/opt/net/wifi" name="platform_frameworks_opt_net_wifi" remote="atu" revision="master" />
+
+<!-- (boot) Needed to disable dm-verity and adb auth on A/B devices, required for booting -->
+<remove-project name="platform/system/core" />
+<project path="system/core" name="platform_system_core" remote="atu" revision="master" />
+
+<!-- (device boot) Needed for FBE on f2fs and sdcard. All upstreamed in 8.1 -->
+<remove-project name="platform/system/vold" />
+<project path="system/vold" name="platform_system_vold" remote="atu" revision="master" />
+
+<!-- Required for tethering on Huawei -->
+<remove-project name="platform/system/netd" />
+<project path="system/netd" name="platform_system_netd" remote="atu" revision="master" />
+
+<!-- Needed for multi-sim settings -->
+<remove-project name="platform/packages/services/Telephony" />
+<project path="packages/services/Telephony" name="platform_packages_services_Telephony" remote="atu" revision="master" />
+
+<project path="vendor/hardware_overlay" name="vendor_hardware_overlay" remote="atu" revision="master" />
+<project path="device/huawei/atu_l21" name="device_atu_l21" remote="atu" revision="master" />
+</manifest>
